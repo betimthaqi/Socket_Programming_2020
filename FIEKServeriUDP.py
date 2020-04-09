@@ -43,8 +43,8 @@ def COUNT(fjalia):
 
 # metoda REVERSE
 def REVERSE(fjalia):
-    fjalia = str(fjalia).strip()
-    return fjalia
+    fjalia1 = fjalia[::-1].strip()
+    return fjalia1
 
 # metoda PALINDROME
 def PALINDROME(fjalia):    
@@ -57,7 +57,7 @@ def PALINDROME(fjalia):
 # metoda TIME
 def TIME():
     koha = datetime.datetime.now()
-    rezultati = "Data:      Ora: \n" + koha.strftime("%d.%m.%Y %H:%M:%S")
+    rezultati = "Data:      Ora: \n" + koha.strftime("%d.%m.%Y %I:%M:%S %p")
     return str(rezultati)
 
 # metoad GAME
