@@ -45,8 +45,8 @@ def COUNT(fjalia):
 
 # metoda REVERSE
 def REVERSE(fjalia):
-    fjalia = str(fjalia).strip()
-    return fjalia
+    fjalia1 = fjalia[::-1].strip()
+    return fjalia1
 
 # metoda PALINDROME
 def PALINDROME(fjalia):    
@@ -59,7 +59,7 @@ def PALINDROME(fjalia):
 # metoda TIME
 def TIME():
     koha = datetime.datetime.now()
-    rezultati = "Data:      Ora: \n" + koha.strftime("%d.%m.%Y %H:%M:%S")
+    rezultati = "Data:      Ora: \n" + koha.strftime("%d.%m.%Y %I:%M:%S %p")
     return str(rezultati)
 
 # metoad GAME
@@ -183,7 +183,7 @@ def newClient(connectionSocket,addr):
             # metoda REVERSE
             elif kerkesaArray[0]=="REVERSE":
                 fjaliaShenuar = kerkesaStr.replace(fjalapar,"",1)
-                rezultati = "Fjalia juaj e shenuar eshte: " + REVERSE(fjaliaShenuar)
+                rezultati = "Fjalia juaj e shenuar reverse eshte: " + REVERSE(fjaliaShenuar)
                 DERGESAKLIENT(addr[0],addr[1],rezultati)
                 connectionSocket.send(rezultati.encode())
             # metoda PALINDROME
@@ -263,9 +263,6 @@ def newClient(connectionSocket,addr):
                         rezultati = "Numri " + kerkesaArray[1] + " i ngritur ne fuqi " + kerkesaArray[2] + " eshte i barabarte me " + POW(kerkesaArray[1],kerkesaArray[2])
                         DERGESAKLIENT(addr[0],addr[1],rezultati)
                         connectionSocket.send(rezultati.encode())
-
-            #arsyeja pse ne fund te qdo metode e kam konvertuar variablen kryesore ne string eshte sepse ajo me pas duhet te enkodohet ne bytes, 
-            #dhe metoda e gatshme encode mund te enkodoje vetem stringje
 
             # asnjona prej metodave me larte
             else:
